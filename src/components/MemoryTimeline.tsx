@@ -1,38 +1,44 @@
 
 import React from 'react';
-import { Heart } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const MemoryTimeline = () => {
   const memories = [
     {
-      year: "1950-1948",
-      title: "O Começo de Tudo",
-      description: "Duas vidas que começaram com tanto potencial e amor para dar ao mundo."
+      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600&h=400&fit=crop",
+      title: "Momentos na Natureza",
+      description: "Lembranças dos passeios ao ar livre e do amor pela natureza que sempre compartilharam."
     },
     {
-      year: "1970",
-      title: "Primeiros Encontros",
-      description: "Os caminhos se cruzaram, criando laços que durariam para toda a vida."
+      image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=600&h=400&fit=crop",
+      title: "Paisagens Memoráveis",
+      description: "As viagens e lugares especiais que visitaram juntos ao longo dos anos."
     },
     {
-      year: "1980-1990",
-      title: "Construindo Famílias",
-      description: "Anos dedicados a criar, educar e amar suas famílias com toda a devoção."
+      image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=600&h=400&fit=crop",
+      title: "Flores e Jardins",
+      description: "O carinho especial pelas flores e a dedicação ao cultivo de belos jardins."
     },
     {
-      year: "2000-2010",
-      title: "Sabedoria e Experiência",
-      description: "Décadas de experiências compartilhadas, conselhos dados e amor multiplicado."
+      image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=600&h=400&fit=crop",
+      title: "Tranquilidade",
+      description: "Momentos de paz e contemplação que tanto apreciavam no dia a dia."
     },
     {
-      year: "2020",
-      title: "Legado Construído",
-      description: "Uma vida de realizações, relacionamentos profundos e memórias preciosas."
+      image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=600&h=400&fit=crop",
+      title: "Conexão com a Terra",
+      description: "O amor pela simplicidade e pela beleza natural que os cercava."
     },
     {
-      year: "2023",
-      title: "Para Sempre em Nossos Corações",
-      description: "Embora tenham partido, seu amor e ensinamentos permanecem conosco eternamente."
+      image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=600&h=400&fit=crop",
+      title: "Raízes Profundas",
+      description: "A força e estabilidade que trouxeram para suas famílias e comunidade."
     }
   ];
 
@@ -40,38 +46,43 @@ const MemoryTimeline = () => {
     <section className="py-16 memorial-gradient">
       <div className="container mx-auto px-4">
         <h2 className="font-serif text-4xl font-bold text-center text-memorial-ocean mb-12">
-          Linha do Tempo de Memórias
+          Galeria de Memórias
         </h2>
         
         <div className="max-w-4xl mx-auto">
-          {memories.map((memory, index) => (
-            <div key={index} className="relative flex items-center mb-8 animate-fade-in">
-              {/* Timeline line */}
-              {index !== memories.length - 1 && (
-                <div className="absolute left-6 top-12 w-0.5 h-16 bg-memorial-ocean/30"></div>
-              )}
-              
-              {/* Timeline dot */}
-              <div className="flex-shrink-0 w-12 h-12 bg-memorial-ocean rounded-full flex items-center justify-center shadow-lg">
-                <Heart className="h-6 w-6 text-white" />
-              </div>
-              
-              {/* Content */}
-              <div className="ml-6 bg-white rounded-lg shadow-md p-6 flex-grow">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                  <h3 className="font-serif text-xl font-semibold text-memorial-ocean">
-                    {memory.title}
-                  </h3>
-                  <span className="text-memorial-stone font-medium">
-                    {memory.year}
-                  </span>
-                </div>
-                <p className="text-memorial-stone leading-relaxed">
-                  {memory.description}
-                </p>
-              </div>
-            </div>
-          ))}
+          <Carousel className="w-full">
+            <CarouselContent>
+              {memories.map((memory, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="bg-white rounded-lg shadow-md overflow-hidden animate-fade-in">
+                    <div className="aspect-video overflow-hidden">
+                      <img 
+                        src={memory.image} 
+                        alt={memory.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="font-serif text-xl font-semibold text-memorial-ocean mb-3">
+                        {memory.title}
+                      </h3>
+                      <p className="text-memorial-stone leading-relaxed">
+                        {memory.description}
+                      </p>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
+          
+          <div className="text-center mt-8">
+            <p className="text-memorial-stone italic">
+              "Cada imagem conta uma história, cada lembrança aquece o coração"
+            </p>
+          </div>
         </div>
       </div>
     </section>
