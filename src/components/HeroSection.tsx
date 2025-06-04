@@ -24,8 +24,8 @@ const HeroSection = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <h3 className="font-serif text-2xl font-semibold text-memorial-ocean">Nome da Pessoa 1</h3>
-            <p className="text-memorial-stone mt-2">1950 - 2023</p>
+            <h3 className="font-serif text-2xl font-semibold text-memorial-ocean">Simone Pereira Correia</h3>
+            <p className="text-memorial-stone mt-2">1976 - 2025</p>
           </div>
           
           <div className="hidden md:block w-px h-24 bg-memorial-stone/30"></div>
@@ -39,8 +39,8 @@ const HeroSection = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <h3 className="font-serif text-2xl font-semibold text-memorial-ocean">Nome da Pessoa 2</h3>
-            <p className="text-memorial-stone mt-2">1948 - 2023</p>
+            <h3 className="font-serif text-2xl font-semibold text-memorial-ocean">Jose Kaique Da Silva</h3>
+            <p className="text-memorial-stone mt-2">2010 - 2025</p>
           </div>
         </div>
       </div>
