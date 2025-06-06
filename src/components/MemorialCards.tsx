@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import simoneImg from '../components/imgs/img-simone2.jpeg'
+import kaiqueImg from '../components/imgs/img-kaique-mica-ray.jpeg'
 
 const MemorialCards = () => {
   return (
@@ -15,14 +17,14 @@ const MemorialCards = () => {
           <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-in">
             <div className="h-64 overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=600&h=400&fit=crop" 
+                src={simoneImg}
                 alt="Momentos especiais" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
             <CardContent className="p-6">
               <h3 className="font-serif text-2xl font-semibold text-memorial-ocean mb-4">
-                Nome da Pessoa 1
+                Simone Pereira Correia
               </h3>
               <p className="text-memorial-stone leading-relaxed mb-4">
                 Uma pessoa extraordinária que dedicou sua vida à família e ao trabalho. 
@@ -31,8 +33,8 @@ const MemorialCards = () => {
                 para sempre em nossos corações.
               </p>
               <div className="space-y-2 text-sm text-memorial-stone">
-                <p><strong>Nascimento:</strong> 15 de março de 1950</p>
-                <p><strong>Partida:</strong> 10 de agosto de 2023</p>
+                <p><strong>Nascimento:</strong> 15 de março de 1976</p>
+                <p><strong>Partida:</strong> 18 de Maio de 2025</p>
                 <p><strong>Paixões:</strong> Jardinagem, culinária, família</p>
               </div>
             </CardContent>
@@ -42,14 +44,14 @@ const MemorialCards = () => {
           <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-in">
             <div className="h-64 overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=600&h=400&fit=crop" 
+                src={kaiqueImg}
                 alt="Momentos especiais" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
             <CardContent className="p-6">
               <h3 className="font-serif text-2xl font-semibold text-memorial-ocean mb-4">
-                Nome da Pessoa 2
+                José Kaique Da Silva
               </h3>
               <p className="text-memorial-stone leading-relaxed mb-4">
                 Um ser humano excepcional, sempre pronto para ajudar e apoiar quem 
@@ -58,8 +60,8 @@ const MemorialCards = () => {
                 vivos em cada um de nós.
               </p>
               <div className="space-y-2 text-sm text-memorial-stone">
-                <p><strong>Nascimento:</strong> 22 de julho de 1948</p>
-                <p><strong>Partida:</strong> 3 de setembro de 2023</p>
+                <p><strong>Nascimento:</strong> 02 de Janeiro de 2010</p>
+                <p><strong>Partida:</strong> 18 de Maio de 2025</p>
                 <p><strong>Paixões:</strong> Música, leitura, viagens</p>
               </div>
             </CardContent>

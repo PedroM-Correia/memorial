@@ -1,5 +1,7 @@
 
 import React from 'react';
+import simoneImg from '../components/imgs/img-simone2.jpeg'
+import kaiqueImg from '../components/imgs/img-kaique.jpeg'
 
 const HeroSection = () => {
   return (
@@ -19,9 +21,10 @@ const HeroSection = () => {
           <div className="text-center">
             <div className="w-32 h-32 rounded-full bg-white shadow-lg mx-auto mb-4 overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1472396961693-142e6e269027?w=300&h=300&fit=crop&crop=faces" 
+                src= {simoneImg}
                 alt="Pessoa querida" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
+                style={{ objectPosition: '50% 20%' }}
               />
             </div>
             <h3 className="font-serif text-2xl font-semibold text-memorial-ocean">Simone Pereira Correia</h3>
@@ -34,9 +37,10 @@ const HeroSection = () => {
           <div className="text-center">
             <div className="w-32 h-32 rounded-full bg-white shadow-lg mx-auto mb-4 overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=300&h=300&fit=crop&crop=faces" 
+                src={kaiqueImg}
                 alt="Pessoa querida" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
+                
               />
             </div>
             <h3 className="font-serif text-2xl font-semibold text-memorial-ocean">Jose Kaique Da Silva</h3>
