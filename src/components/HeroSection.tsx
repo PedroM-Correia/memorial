@@ -9,7 +9,7 @@ const HeroSection = () => {
       <div className="max-w-4xl mx-auto animate-fade-in">
         <div className="mb-8">
           <h1 className="font-serif text-5xl md:text-6xl font-bold text-memorial-ocean mb-6 text-shadow">
-            Para Sempre em Nossos Corações
+            Para Sempre em Nossos Corações ❤️
           </h1>
           <p className="text-xl md:text-2xl text-memorial-stone font-light leading-relaxed max-w-3xl mx-auto">
             Este espaço é dedicado à memória de duas pessoas especiais que deixaram suas marcas 
