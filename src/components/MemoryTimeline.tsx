@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/dialog";
 
 const MemoryTimeline = () => {
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+
   const memories = [
     {
       image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600&h=400&fit=crop",
@@ -47,6 +49,47 @@ const MemoryTimeline = () => {
     }
   ];
 
+  // Função para navegar para a próxima imagem
+  const goToNextImage = () => {
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex + 1) % memories.length);
+    }
+  };
+
+  // Função para navegar para a imagem anterior
+  const goToPreviousImage = () => {
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex(selectedImageIndex === 0 ? memories.length - 1 : selectedImageIndex - 1);
+    }
+  };
+
+  // Effect para adicionar/remover event listener de teclado
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (selectedImageIndex !== null) {
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          goToNextImage();
+        } else if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          goToPreviousImage();
+        } else if (event.key === 'Escape') {
+          setSelectedImageIndex(null);
+        }
+      }
+    };
+
+    if (selectedImageIndex !== null) {
+      document.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedImageIndex]);
+
+  const selectedMemory = selectedImageIndex !== null ? memories[selectedImageIndex] : null;
+
   return (
     <section className="py-16 memorial-gradient">
       <div className="container mx-auto px-4">
@@ -60,34 +103,13 @@ const MemoryTimeline = () => {
               {memories.map((memory, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="bg-white rounded-lg shadow-md overflow-hidden animate-fade-in">
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <div className="aspect-video overflow-hidden cursor-pointer">
-                          <img 
-                            src={memory.image} 
-                            alt={memory.title}
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                          />
-                        </div>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-4xl w-full p-0 bg-transparent border-0">
-                        <div className="relative">
-                          <img 
-                            src={memory.image.replace('w=600&h=400', 'w=1200&h=800')} 
-                            alt={memory.title}
-                            className="w-full h-auto max-h-[90vh] object-contain rounded-lg"
-                          />
-                          <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4 rounded-b-lg">
-                            <h3 className="font-serif text-xl font-semibold mb-2">
-                              {memory.title}
-                            </h3>
-                            <p className="text-sm leading-relaxed">
-                              {memory.description}
-                            </p>
-                          </div>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
+                    <div className="aspect-video overflow-hidden cursor-pointer" onClick={() => setSelectedImageIndex(index)}>
+                      <img 
+                        src={memory.image} 
+                        alt={memory.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
                     <div className="p-6">
                       <h3 className="font-serif text-xl font-semibold text-memorial-ocean mb-3">
                         {memory.title}
@@ -111,6 +133,39 @@ const MemoryTimeline = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal para exibir imagem em tamanho maior */}
+      <Dialog open={selectedImageIndex !== null} onOpenChange={(open) => !open && setSelectedImageIndex(null)}>
+        <DialogContent className="max-w-4xl w-full p-0 bg-transparent border-0">
+          {selectedMemory && (
+            <div className="relative">
+              <img 
+                src={selectedMemory.image.replace('w=600&h=400', 'w=1200&h=800')} 
+                alt={selectedMemory.title}
+                className="w-full h-auto max-h-[90vh] object-contain rounded-lg"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4 rounded-b-lg">
+                <h3 className="font-serif text-xl font-semibold mb-2">
+                  {selectedMemory.title}
+                </h3>
+                <p className="text-sm leading-relaxed">
+                  {selectedMemory.description}
+                </p>
+              </div>
+              
+              {/* Indicador de navegação */}
+              <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                {(selectedImageIndex || 0) + 1} / {memories.length}
+              </div>
+              
+              {/* Dica de navegação */}
+              <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                Use ← → para navegar
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
