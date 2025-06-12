@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -7,6 +7,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const MemoryTimeline = () => {
   const memories = [
@@ -55,13 +60,34 @@ const MemoryTimeline = () => {
               {memories.map((memory, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="bg-white rounded-lg shadow-md overflow-hidden animate-fade-in">
-                    <div className="aspect-video overflow-hidden">
-                      <img 
-                        src={memory.image} 
-                        alt={memory.title}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="aspect-video overflow-hidden cursor-pointer">
+                          <img 
+                            src={memory.image} 
+                            alt={memory.title}
+                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl w-full p-0 bg-transparent border-0">
+                        <div className="relative">
+                          <img 
+                            src={memory.image.replace('w=600&h=400', 'w=1200&h=800')} 
+                            alt={memory.title}
+                            className="w-full h-auto max-h-[90vh] object-contain rounded-lg"
+                          />
+                          <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4 rounded-b-lg">
+                            <h3 className="font-serif text-xl font-semibold mb-2">
+                              {memory.title}
+                            </h3>
+                            <p className="text-sm leading-relaxed">
+                              {memory.description}
+                            </p>
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                     <div className="p-6">
                       <h3 className="font-serif text-xl font-semibold text-memorial-ocean mb-3">
                         {memory.title}
