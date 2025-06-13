@@ -13,14 +13,16 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
+import simoneRioSobrinhos from '../components/imgs/img-simone-rio-sobrinhos.jpeg';
+
 const MemoryTimeline = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
   const memories = [
     {
-      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600&h=400&fit=crop",
-      title: "Momentos na Natureza",
-      description: "Lembranças dos passeios ao ar livre e do amor pela natureza que sempre compartilharam."
+      image: simoneRioSobrinhos,
+      title: "Simone e Seus Sobrinhos no rio São Francisco",
+      description: "Um dia com muita alegria e diversão, onde Simone compartilhou momentos inesquecíveis com seus sobrinhos no rio São Francisco. Data: 02 de Janeiro de 2020"
     },
     {
       image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=600&h=400&fit=crop",
