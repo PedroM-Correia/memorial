@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import simoneImg from '../components/imgs/img-simone2.jpeg'
+import simoneImg from '../components/imgs/simone-horizontal.jpeg'
 import kaiqueImg from '../components/imgs/img-kaique-mica-ray.jpeg'
 
 const MemorialCards = () => {

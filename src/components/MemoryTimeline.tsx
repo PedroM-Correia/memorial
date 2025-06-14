@@ -13,7 +13,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-import simoneRioSobrinhos from '../components/imgs/img-simone-rio-sobrinhos.jpeg';
+import simoneRioSobrinhos from '../components/imgs/simone-rio-sobrinhos.jpeg';
 
 const MemoryTimeline = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
