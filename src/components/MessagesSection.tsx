@@ -7,10 +7,11 @@ import { Heart } from 'lucide-react';
 const MessagesSection = () => {
   const [messages] = useState([
     {
-      name: "Maria Silva",
-      date: "15 de novembro, 2023",
-      message: "Pessoas especiais como vocês jamais são esquecidas. Obrigada por todos os momentos de alegria que compartilharam conosco. Vocês estarão sempre em nossos corações.",
-      relationship: "Amiga da família"
+      name: "Pedro Mário Damasceno Maciel Pereira Correia",
+      date: "15 de Junho, 2025",
+      message: `Muito obrigado por todas as aventuras e todos os momentos que podemos viver juntos. Era muito bom viajar com a senhora independente do local que iríamos. Muito obrigado por me ensinar a dirigir carro e moto. Era bom demais quando jogávamos vídeo game juntos eu, você é Flavio. Madinha Simone, a senhora sempre estará no meu coração ❤️
+      Kaique você era um garoto feliz, cheio de ideias e com muita vontade de viver. Era muito bonito ver sua dedicação aos estudos e eu tinha o maior prazer em te ajudar no que fosse preciso na sua jornada. Você fará muita falta meu irmão.`,
+      relationship: "Família"
     },
     {
       name: "João Santos",

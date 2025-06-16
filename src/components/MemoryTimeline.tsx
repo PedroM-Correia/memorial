@@ -13,7 +13,13 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
+//Fotos importadas
 import simoneRioSobrinhos from '../components/imgs/simone-rio-sobrinhos.jpeg';
+import kaiqueNatal from '../components/imgs/kaique-natalfamilia.jpeg';
+import simoneEuFlavio from '../components/imgs/simone-eu-flavio.jpeg';
+import kaiquePiscina from '../components/imgs/kaique-primosnapiscina.jpeg';
+import simoneEuMariMae from '../components/imgs/simone-eu-mari-mae.jpeg';
+import kaiqueHamburguer from '../components/imgs/kaique-familiahamburguer.jpeg';
 
 const MemoryTimeline = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
@@ -25,29 +31,29 @@ const MemoryTimeline = () => {
       description: "Um dia com muita alegria e diversão, onde Simone compartilhou momentos inesquecíveis com seus sobrinhos no rio São Francisco. Data: 02 de Janeiro de 2020"
     },
     {
-      image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=600&h=400&fit=crop",
-      title: "Paisagens Memoráveis",
-      description: "As viagens e lugares especiais que visitaram juntos ao longo dos anos."
+      image: kaiqueNatal,
+      title: "Kaique e a Família no Natal",
+      description: "Kaique celebrando o Natal com Cicero, Deise, Pedro e Mariana. Data: 25 de Dezembro de 2023"
     },
     {
-      image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=600&h=400&fit=crop",
-      title: "Flores e Jardins",
-      description: "O carinho especial pelas flores e a dedicação ao cultivo de belos jardins."
+      image: simoneEuFlavio,
+      title: "Trio parada Dura: Simone, Flávio e Pedro Mário",
+      description: "Simone, Flávio e Pedro Mário reunidos em um momento de descontração e alegria. Data provável: 15 de Julho de 2021"
     },
     {
-      image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=600&h=400&fit=crop",
-      title: "Tranquilidade",
-      description: "Momentos de paz e contemplação que tanto apreciavam no dia a dia."
+      image: kaiquePiscina,
+      title: "Kaique e os primos se divertindo na piscina",
+      description: "Kaique e seus primos aproveitando um dia ensolarado na piscina, repleto de risadas e brincadeiras. Data: 10 de Fevereiro de 2024"
     },
     {
-      image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=600&h=400&fit=crop",
-      title: "Conexão com a Terra",
-      description: "O amor pela simplicidade e pela beleza natural que os cercava."
+      image: simoneEuMariMae,
+      title: "Simone, Pedro Mário, Deise e Mariana",
+      description: "Simone levando Pedro Mário, Deise e Mariana para a pista para pegar o ônibus, um momento de carinho e união familiar. Data: 11 de Janeiro de 2020"
     },
     {
-      image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=600&h=400&fit=crop",
-      title: "Raízes Profundas",
-      description: "A força e estabilidade que trouxeram para suas famílias e comunidade."
+      image: kaiqueHamburguer,
+      title: "Kaique comendo hambúrguer em Tapera",
+      description: "Kaique indo passear o final de semana em Tapera e aproveitando um delicioso hambúrguer. Data: 12 de Fevereiro de 2024"
     }
   ];
 
